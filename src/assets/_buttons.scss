@@ -1,0 +1,52 @@
+@mixin button-theme($theme) {
+
+    $colors: map-get($theme, pallet);
+    $pallet: map-get($colors, primary);
+
+    button {
+        border: none;
+        cursor: pointer;
+        color: map-get($pallet, 50);
+        background-color: map-get($pallet, 500);
+        
+        &:not([size]) {
+            padding: 0 12px;
+            height: 32px;
+        }
+    
+        &[size=small] {
+            padding: 0 8px;
+            height: 16px;
+        }
+        
+        &[size=medium] {
+            padding: 0 16px;
+            height: 24px;
+        }
+    
+        &[size=large] {
+            padding: 0 24px;
+            height: 48px;
+        }
+    
+        &:hover {
+            background-color: map-get($pallet, 600);
+            color: map-get($pallet, 50);
+        }
+        
+        &:focus {
+            background-color: map-get($pallet, 700);
+            color: map-get($pallet, 100);
+        }
+    
+        &:active {
+            background-color: map-get($pallet, 800);
+            color: map-get($pallet, 200);
+        }
+    
+        &:disabled {
+            pointer-events: none;
+            background-color: #F1F1F1;
+        }
+    }    
+}

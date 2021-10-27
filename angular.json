@@ -1,5 +1,8 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "d88bede9-a68e-4a14-b01b-cfd731e3ba30"
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
@@ -102,6 +105,37 @@
               "src/styles.scss"
             ],
             "scripts": []
+          }
+        }
+      }
+    },
+    "sass-theme": {
+      "projectType": "library",
+      "root": "projects/sass-theme",
+      "sourceRoot": "projects/sass-theme/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/sass-theme/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/sass-theme/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/sass-theme/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/sass-theme/src/test.ts",
+            "tsConfig": "projects/sass-theme/tsconfig.spec.json",
+            "karmaConfig": "projects/sass-theme/karma.conf.js"
           }
         }
       }
