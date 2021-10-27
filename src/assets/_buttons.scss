@@ -3,39 +3,46 @@
     $colors: map-get($theme, pallet);
     $pallet: map-get($colors, primary);
 
-    button {
-        border: none;
+    .btn, .btn-outline, .btn-clean {
         cursor: pointer;
-        color: map-get($pallet, 50);
-        background-color: map-get($pallet, 500);
+        border-radius: 4px;
+        font-weight: bold;
         
         &:not([size]) {
-            padding: 0 12px;
-            height: 32px;
+            padding: 0 24px;
+            height: 36px;
         }
     
         &[size=small] {
             padding: 0 8px;
-            height: 16px;
+            height: 24px;
         }
         
         &[size=medium] {
             padding: 0 16px;
-            height: 24px;
+            height: 32px;
         }
     
         &[size=large] {
             padding: 0 24px;
-            height: 48px;
+            height: 40px;
         }
-    
-        &:hover {
-            background-color: map-get($pallet, 600);
-            color: map-get($pallet, 50);
-        }
-        
+
         &:focus {
-            background-color: map-get($pallet, 700);
+            outline: none;
+        }
+    }
+    
+    .btn, .btn-clean {
+        border: none;
+    }
+
+    .btn {
+        color: map-get($pallet, 50);
+        background-color: map-get($pallet, 800);
+
+        &:hover, &:focus {
+            background-color: map-get($pallet, 500);
             color: map-get($pallet, 100);
         }
     
@@ -48,5 +55,27 @@
             pointer-events: none;
             background-color: #F1F1F1;
         }
-    }    
+    }
+
+    .btn-outline, .btn-clean {
+        background: inherit;
+        color: map-get($pallet, 800);
+
+        &:hover {
+            background-color: map-get($pallet, 50);
+        }
+
+        &:focus {
+            background-color: map-get($pallet, 100);
+        }
+
+        &:active {
+            background-color: map-get($pallet, 500);
+            color: map-get($pallet, 50);
+        }
+    }
+
+    .btn-outline {
+        border: 1px solid map-get($pallet, 800);
+    }
 }
