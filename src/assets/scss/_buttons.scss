@@ -1,8 +1,8 @@
-@mixin button-color($theme, $type) {
+@mixin button-color($theme, $type, $property) {
     $colors: map-get($theme, pallet);
     $pallet: map-get($colors, #{$type});
 
-    .btn[color=#{$type}] {
+    .btn#{$property} {
         color: map-get($pallet, 50);
         background-color: map-get($pallet, 800);
 
@@ -22,7 +22,7 @@
         }
     }
 
-    .btn-outline[color=#{$type}], .btn-clean[color=#{$type}] {
+    .btn-outline#{$property}, .btn-clean#{$property} {
         background: inherit;
         color: map-get($pallet, 800);
 
@@ -40,7 +40,7 @@
         }
     }
 
-    .btn-outline[color=#{$type}] {
+    .btn-outline#{$property} {
         border: 1px solid map-get($pallet, 800);
     }
 }
@@ -81,8 +81,9 @@
         border: none;
     }
 
-    @include button-color($theme, primary);
-    @include button-color($theme, error);
-    @include button-color($theme, secondary);
-    @include button-color($theme, warning);
+    @include button-color($theme, primary, "[color=primary]");
+    @include button-color($theme, error, "[color=error]");
+    @include button-color($theme, secondary, "[color=secondary]");
+    @include button-color($theme, warning, "[color=warning]");
+    @include button-color($theme, surface, ":not([color])");
 }
