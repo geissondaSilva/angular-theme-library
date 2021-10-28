@@ -84,4 +84,5 @@
     @include button-color($theme, primary);
     @include button-color($theme, error);
     @include button-color($theme, secondary);
+    @include button-color($theme, warning);
 }
